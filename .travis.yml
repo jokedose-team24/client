@@ -2,10 +2,10 @@ sudo: required
 services:
   - docker
 script:
-  - docker build -t front .
+  - docker build -t client .
 after_success:
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-  - docker tag front $DOCKER_USER/front:$TRAVIS_BUILD_NUMBER
-  - docker push $DOCKER_USER/front:$TRAVIS_BUILD_NUMBER
-  - docker tag front $DOCKER_USER/front:latest
-  - docker push $DOCKER_USER/front:latest
+  - docker tag client $DOCKER_USER/client:$TRAVIS_BUILD_NUMBER
+  - docker push $DOCKER_USER/client:$TRAVIS_BUILD_NUMBER
+  - docker tag client $DOCKER_USER/client:latest
+  - docker push $DOCKER_USER/client:latest
